@@ -6,10 +6,19 @@ import java.util.Set;
 
 public class InterviewQuestion {
     private String userChoice;
+    private String question;
     private Map<String,Boolean> answers = new HashMap<String, Boolean>();
 
     public InterviewQuestion(){
 
+    }
+
+    public void setQuestion(String question){
+        this.question = question;
+    }
+
+    public String getQuestion(){
+        return this.question;
     }
 
     public void addAnswer(String answer){

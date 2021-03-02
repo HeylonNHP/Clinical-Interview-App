@@ -6,22 +6,22 @@ import java.util.Set;
 
 public class InterviewQuestion {
     private String userChoice;
-    private Map<String,Boolean> questions = new HashMap<String, Boolean>();
+    private Map<String,Boolean> answers = new HashMap<String, Boolean>();
 
     public InterviewQuestion(){
 
     }
 
-    public void addQuestion(String question){
-        questions.put(question,false);
+    public void addAnswer(String answer){
+        answers.put(answer,false);
     }
 
-    public void removeQuestion(String question){
-        questions.remove(question);
+    public void removeAnswer(String answer){
+        answers.remove(answer);
     }
 
-    public String[] getQuestionList(){
-        Set<String> keys = questions.keySet();
+    public String[] getAnswersList(){
+        Set<String> keys = answers.keySet();
 
         return (String[]) keys.toArray();
     }

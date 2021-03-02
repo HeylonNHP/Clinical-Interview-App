@@ -2,12 +2,14 @@ package com.example.clinicalinterviewapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.clinicalinterviewapp.InterviewData.InterviewData;
+import com.google.gson.Gson;
 
 public class InterviewDetailEntry extends AppCompatActivity {
 
@@ -33,6 +35,14 @@ public class InterviewDetailEntry extends AppCompatActivity {
 
     private void nextButtonClick(View e){
         saveInterviewDetails();
+
+        Intent nextActivity = new Intent(this,InterviewSelection.class);
+
+        Gson gson = new Gson();
+        String interviewDataJson = gson.toJson(this.interviewData);
+        nextActivity.putExtra("interviewData",interviewDataJson);
+
+        startActivity(nextActivity);
 
         // TODO: Goto next activity
     }

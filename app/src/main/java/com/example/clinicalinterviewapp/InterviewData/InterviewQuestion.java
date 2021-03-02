@@ -7,10 +7,19 @@ import java.util.Set;
 public class InterviewQuestion {
     private String userChoice;
     private String question;
+    private String category;
     private Map<String,Boolean> answers = new HashMap<String, Boolean>();
 
     public InterviewQuestion(){
 
+    }
+
+    public void setCategory(String category){
+        this.category = category;
+    }
+
+    public String getCategory(){
+        return this.category;
     }
 
     public void setQuestion(String question){

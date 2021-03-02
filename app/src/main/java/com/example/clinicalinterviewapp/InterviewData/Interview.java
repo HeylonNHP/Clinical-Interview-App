@@ -30,4 +30,8 @@ public class Interview {
         return this.interviewTitle;
     }
 
+    @Override
+    public String toString() {
+        return this.interviewTitle;
+    }
 }

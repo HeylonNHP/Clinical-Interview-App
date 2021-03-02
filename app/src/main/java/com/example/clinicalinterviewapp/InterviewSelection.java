@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -38,5 +40,19 @@ public class InterviewSelection extends AppCompatActivity {
         ArrayAdapter<Interview> interviewArrayAdapter = new ArrayAdapter<>(this,R.layout.list_item,R.id.listTextView,interviewList);
 
         listView.setAdapter(interviewArrayAdapter);
+        listView.setOnItemClickListener(this::onClickListItem);
+    }
+
+    private void onClickListItem(AdapterView<?> adapterView, View view, int position, long l){
+        Interview selectedInterview = (Interview) adapterView.getItemAtPosition(position);
+        System.out.println(selectedInterview);
+
+        Intent intent = new Intent(this,QuestionScreen.class);
+
+        Gson gson = new Gson();
+        String interviewDataJson = gson.toJson(this.interviewData);
+        intent.putExtra("interviewData",interviewDataJson);
+
+        startActivity(intent);
     }
 }

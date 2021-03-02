@@ -8,7 +8,7 @@ public class InterviewData {
     private String interviewTime;
     private String suburb;
 
-    private final List<InterviewQuestion> questionList = new ArrayList<InterviewQuestion>();
+    private Interview interview;
     int currentQuestionIndex = 0;
 
     public InterviewData(){
@@ -39,26 +39,26 @@ public class InterviewData {
         return suburb;
     }
 
-    public void addQuestion(InterviewQuestion question){
-        this.questionList.add(question);
+    public void setInterview(Interview interview){
+        this.interview = interview;
     }
 
-    public void removeQuestion(int index){
-        this.questionList.remove(index);
+    public Interview getInterview(){
+        return this.interview;
     }
 
     public InterviewQuestion getQuestion(int index){
-        return this.questionList.get(index);
+        return this.interview.getQuestion(index);
     }
 
     public InterviewQuestion nextQuestion(){
         this.currentQuestionIndex++;
-        return this.questionList.get(this.currentQuestionIndex);
+        return this.interview.getQuestion(this.currentQuestionIndex);
     }
 
     public InterviewQuestion previousQuestion(){
         this.currentQuestionIndex--;
-        return this.questionList.get(this.currentQuestionIndex);
+        return this.interview.getQuestion(this.currentQuestionIndex);
     }
 
 }

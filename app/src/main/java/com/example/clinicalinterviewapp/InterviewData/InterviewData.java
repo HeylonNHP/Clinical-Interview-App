@@ -9,7 +9,7 @@ public class InterviewData {
     private String suburb;
 
     private Interview interview;
-    int currentQuestionIndex = 0;
+    int currentQuestionIndex = -1;
 
     public InterviewData(){
 

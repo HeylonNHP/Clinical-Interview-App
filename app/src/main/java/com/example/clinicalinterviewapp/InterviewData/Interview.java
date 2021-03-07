@@ -22,6 +22,10 @@ public class Interview {
         return questionList.get(index);
     }
 
+    public List<InterviewQuestion> getQuestionList(){
+        return questionList;
+    }
+
     public void setTitle(String title){
         this.interviewTitle = title;
     }

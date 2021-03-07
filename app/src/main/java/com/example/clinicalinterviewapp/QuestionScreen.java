@@ -35,9 +35,7 @@ public class QuestionScreen extends AppCompatActivity {
         Gson gson = new Gson();
         this.interviewData = gson.fromJson(intent.getStringExtra("interviewData"),InterviewData.class);
 
-        InterviewQuestion question = this.interviewData.nextQuestion();
-        this.currentQuestion = question;
-        displayQuestion(question);
+        getNextQuestion();
     }
 
     private void onClickListItem(AdapterView<?> adapterView, View view, int i, long l) {
@@ -50,6 +48,18 @@ public class QuestionScreen extends AppCompatActivity {
 
             System.out.println("Key:" + key + " Value:" + checkedItems.get(key) + " Ans:" + answersList.getItemAtPosition(key));
             this.currentQuestion.setUserChoice(answersList.getItemAtPosition(key).toString());
+        }
+
+        getNextQuestion();
+    }
+
+    private void getNextQuestion(){
+        try{
+            this.currentQuestion = this.interviewData.nextQuestion();
+            displayQuestion(this.currentQuestion);
+        }catch (Exception ex){
+            //Out of range - ran out of questions
+
         }
     }
 

@@ -47,6 +47,8 @@ public class InterviewSelection extends AppCompatActivity {
         Interview selectedInterview = (Interview) adapterView.getItemAtPosition(position);
         System.out.println(selectedInterview);
 
+        this.interviewData.setInterview(selectedInterview);
+
         Intent intent = new Intent(this,QuestionScreen.class);
 
         Gson gson = new Gson();

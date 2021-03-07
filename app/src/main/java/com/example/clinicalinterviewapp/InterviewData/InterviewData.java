@@ -51,13 +51,19 @@ public class InterviewData {
         return this.interview.getQuestion(index);
     }
 
-    public InterviewQuestion nextQuestion(){
+    public InterviewQuestion nextQuestion() throws Exception{
         this.currentQuestionIndex++;
+        if(this.interview.getQuestionList().size() <= this.currentQuestionIndex){
+            throw new Exception("Out of range");
+        }
         return this.interview.getQuestion(this.currentQuestionIndex);
     }
 
-    public InterviewQuestion previousQuestion(){
+    public InterviewQuestion previousQuestion() throws Exception{
         this.currentQuestionIndex--;
+        if(this.currentQuestionIndex < 0){
+            throw new Exception("Out of range");
+        }
         return this.interview.getQuestion(this.currentQuestionIndex);
     }
 

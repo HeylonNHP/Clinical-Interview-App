@@ -1,6 +1,9 @@
 package com.example.clinicalinterviewapp.InterviewData;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -39,9 +42,15 @@ public class InterviewQuestion {
     }
 
     public String[] getAnswersList(){
-        Set<String> keys = answers.keySet();
+        List<String> keyList = new ArrayList<>(answers.keySet());
 
-        return (String[]) keys.toArray();
+        String[] stringKeyList = new String[keyList.size()];
+
+        for(int i = 0; i < keyList.size(); ++i){
+            stringKeyList[i] = keyList.get(i);
+        }
+
+        return (String[]) stringKeyList;
     }
 
     public void setUserChoice(String userChoice){
